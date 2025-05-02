@@ -8,6 +8,9 @@ public class Board {
     List<Box> boxes;
     List<Snakes> snakes;
     List<Ladder> ladders;
+    List<Coin> coins;
+
+    List<IGameEntity> entities;
 
     public Box getFirstPosition() {
         return boxes.get(0);
@@ -21,16 +24,26 @@ public class Board {
     }
 
     public void applySnakesnLadders(Player player) {
-        for(Snakes snake: snakes){
-            if(snake.mouth.equals(player.currentPosition)){
-                player.currentPosition = snake.tail;
-            }
-        }
+//        for(Snakes snake: snakes){
+//            if(snake.mouth.equals(player.currentPosition)){
+//                player.currentPosition = snake.tail;
+//            }
+//        }
+//
+//        for(Ladder ladder: ladders){
+//            if(ladder.bottom.equals(player.currentPosition)){
+//                player.currentPosition = ladder.top;
+//            }
+//        }
+//
+//        for(Coin coin: coins){
+//            if(coin.applicablePosition.equals(player.currentPosition)){
+//                player.coins += coin.value;
+//            }
+//        }
 
-        for(Ladder ladder: ladders){
-            if(ladder.bottom.equals(player.currentPosition)){
-                player.currentPosition = ladder.top;
-            }
+        for(IGameEntity entity: entities){
+            entity.apply(player);
         }
     }
 }

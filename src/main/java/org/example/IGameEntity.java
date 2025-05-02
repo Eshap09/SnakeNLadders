@@ -1,2 +1,5 @@
-package org.example;public interface IGameEntity {
+package org.example;
+
+public interface IGameEntity {
+    void apply(Player player);
 }
